@@ -47,9 +47,12 @@ class Checking:
             print(f"Проверка полей: У пользователя №{k + 1} все поля присутствуют \n {required_fields}")
 
     @staticmethod
-    def check_list_names_users(response: Response, ):
+    def check_field_email(response: Response):
         result = response.json()
-        names = [i.get('name') for i in result]
-        assert len(names) > 0
-        print(f'Проверка списка имен пользователей: [{len(names)}] имен. Список не пустой')
+        email = [i.get('email') for i in result]
+        for k,v in enumerate(email):
+            assert "@" in v
+            print(f"Проверка поле Email: У пользователя №{k + 1} в email присутствует символ '@'")
+
+
 

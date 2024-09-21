@@ -16,5 +16,6 @@ class TestJsonPlaceholder:
         Checking.check_list_names_users(response)
         Checking.check_list_users(response)
         Checking.check_list_user_fields(response, list_custom_fields)
+        Checking.check_field_email(response)
 
 
