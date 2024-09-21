@@ -25,26 +25,31 @@ class Checking:
 
 
     @staticmethod
-    def get_list_names_users(response: Response, ):
+    def check_list_names_users(response: Response, ):
         result = response.json()
         names = [i.get('name') for i in result]
         assert len(names) > 0
         print(f'Проверка списка имен пользователей: [{len(names)}] имен. Список не пустой')
 
     @staticmethod
-    def get_list_users(response: Response):
+    def check_list_users(response: Response):
         result = response.json()
         users = [i for i in result]
         assert len(users) > 0
         print(f'Проверка списка пользователей: [{len(users)}] пользователей. Список не пустой')
 
     @staticmethod
-    def get_list_user_fields(response: Response, required_fields):
+    def check_list_user_fields(response: Response, required_fields):
         result = response.json()
         users = [[*i.keys()] for i in result]
         for k,v in enumerate(users):
             assert required_fields == v
             print(f"Проверка полей: У пользователя №{k + 1} все поля присутствуют \n {required_fields}")
 
-
+    @staticmethod
+    def check_list_names_users(response: Response, ):
+        result = response.json()
+        names = [i.get('name') for i in result]
+        assert len(names) > 0
+        print(f'Проверка списка имен пользователей: [{len(names)}] имен. Список не пустой')
 

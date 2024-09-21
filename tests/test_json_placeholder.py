@@ -13,8 +13,8 @@ class TestJsonPlaceholder:
         list_custom_fields = ['id', 'name', 'username', 'email', 'address', 'phone', 'website', 'company']
         response = JsonPlaceholderApi.get_users()
         Checking.check_status_code(response, 200)
-        Checking.get_list_names_users(response)
-        Checking.get_list_users(response)
-        Checking.get_list_user_fields(response, list_custom_fields)
+        Checking.check_list_names_users(response)
+        Checking.check_list_users(response)
+        Checking.check_list_user_fields(response, list_custom_fields)
 
 
