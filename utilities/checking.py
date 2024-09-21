@@ -17,15 +17,9 @@ class Checking:
         assert required_fields_response == required_fields
         print(f"Обязательные поля: Все указанные поля в ответе от сервера присутствуют")
 
-    @staticmethod
-    def check_json_value(response: Response, key, value):
-        response_value = json.loads(response.text).get(key)
-        assert response_value == value
-        print(f"Обязательное поле {key} со значением {value} присутствует в ответе от сервера")
-
 
     @staticmethod
-    def check_list_names_users(response: Response, ):
+    def check_list_names_users(response: Response):
         result = response.json()
         names = [i.get('name') for i in result]
         assert len(names) > 0

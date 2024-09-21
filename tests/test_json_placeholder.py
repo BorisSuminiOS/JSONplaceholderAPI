@@ -1,6 +1,7 @@
 from utilities.checking import Checking
 import allure
 from utilities.json_placeholder_api import JsonPlaceholderApi
+from utilities.conftest import test_delimitation
 
 
 @allure.epic('Тестирование пользователей')
@@ -8,9 +9,8 @@ class TestJsonPlaceholder:
 
     @classmethod
     @allure.description('Тест на отображение пользователей')
-    def test_get_users(cls):
+    def test_get_users(cls, test_delimitation):
         response = JsonPlaceholderApi.get_users()
-
         Checking.check_status_code(response, 200)
         Checking.check_list_names_users(response)
         Checking.check_list_users(response)
