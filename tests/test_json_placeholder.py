@@ -11,3 +11,5 @@ class TestJsonPlaceholder:
     def test_get_users(cls):
         response = JsonPlaceholderApi.get_users()
         Checking.check_status_code(response, 200)
+        Checking.get_list_names_users(response)
+        Checking.get_list_users(response)

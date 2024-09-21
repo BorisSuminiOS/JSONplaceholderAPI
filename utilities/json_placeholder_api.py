@@ -1,4 +1,3 @@
-import requests
 from utilities.http_methods import Http_methods
 
 base_url = 'https://jsonplaceholder.typicode.com'
@@ -16,5 +15,5 @@ class JsonPlaceholderApi:
         url = f'{base_url}{resource_get}'
         result_get = Http_methods.get(url)
         print(f'Ответ от сервера: {result_get.text}')
-        print(f'Статус код: {result_get.status_code}')
+        print(f'Файтический статус код: {result_get.status_code}')
         return result_get
