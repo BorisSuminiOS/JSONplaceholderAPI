@@ -5,7 +5,9 @@ from utilities.logger import Logger
 headers = {'Content-Type':'application/json'}
 cookies = ''
 
+
 class Http_methods:
+
     '''HTTP методы'''
 
     @staticmethod
