@@ -6,9 +6,8 @@ headers = {'Content-Type':'application/json'}
 cookies = ''
 
 
-class Http_methods:
-
-    '''HTTP методы'''
+class HttpMethods:
+    """HTTP методы"""
 
     @staticmethod
     def get(url):
@@ -25,7 +24,6 @@ class Http_methods:
             result_post = requests.post(url, json=body, headers=headers, cookies=cookies)
             Logger.add_response(result_post)
         return result_post
-
 
     @staticmethod
     def put(url, body):
