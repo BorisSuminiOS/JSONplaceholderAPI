@@ -1,5 +1,6 @@
 import json
 from requests import Response
+from services.models.user_model import User
 
 
 class Checking:
@@ -41,11 +42,8 @@ class Checking:
 
     @staticmethod
     def check_field_email(response: Response):
-        result = response.json()
-        email = [i.get('email') for i in result]
-        for k,v in enumerate(email):
-            assert "@" in v, f"Указанный знак у пользователя {v} отсутствует"
-            print(f"Проверка поле Email: У пользователя №{k + 1} в email присутствует символ '@'")
-
-
+        for k,v in enumerate(response.json()):
+            user = User(**v)
+            assert '@' in user.email, f'Символ "@" отсутствует'
+            print(f'Символ "@" присутствует в email пользователя №{k + 1}')
 
